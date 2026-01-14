@@ -23,6 +23,7 @@ spec:
         app.kubernetes.io/component: postgres
     spec:
       nodeSelector: {{- toYaml .Values.postgres.nodeSelector | nindent 8 }}
+      securityContext: {{- toYaml .Values.postgres.securityContext | nindent 8 }}
       containers:
         - name: postgres
           image: "{{ .Values.postgres.image }}"
